@@ -4,26 +4,7 @@
 
 ## 📚 문서
 
-이 템플릿을 처음 사용하시는 분들을 위해 상세한 문서를 제공합니다. 아래 문서들을 참고하여 프로젝트를 시작하세요.
-
-### 필수 문서
-
 - **[🏗️ 아키텍처 가이드](./docs/ARCHITECTURE.md)** - 도메인 기반 아키텍처의 개념, 구조, 핵심 원칙 상세 설명
-- **[🚀 시작하기 가이드](./docs/GETTING_STARTED.md)** - 개발 환경 설정, 프로젝트 구조 상세 설명, 첫 번째 기능 만들기
-- **[📦 라이브러리 가이드](./docs/LIBRARIES.md)** - 사용된 라이브러리 상세 설명 및 활용법
-- **[🎨 스타일링 가이드](./docs/STYLED_COMPONENTS_GUIDE.md)** - Styled-components 사용법, 테마 시스템
-- **[⚡ AsyncBoundary 가이드](./docs/ASYNC_BOUNDARY_GUIDE.md)** - 로딩/에러 처리 공통화, Suspense 패턴
-- **[📖 예제 코드](./docs/EXAMPLES.md)** - 템플릿에 포함된 예제 기능 상세 설명
-
-### 추천 학습 순서
-
-1. **README** (현재 문서) - 프로젝트 전체 개요 파악
-2. **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - 도메인 기반 아키텍처 개념과 원칙 이해
-3. **[GETTING_STARTED.md](./docs/GETTING_STARTED.md)** - 프로젝트 시작 및 개발 환경 설정
-4. **[LIBRARIES.md](./docs/LIBRARIES.md)** - 사용된 라이브러리 학습
-5. **[EXAMPLES.md](./docs/EXAMPLES.md)** - 예제 코드 분석
-6. **[ASYNC_BOUNDARY_GUIDE.md](./docs/ASYNC_BOUNDARY_GUIDE.md)** - 로딩/에러 처리 패턴
-7. **[STYLED_COMPONENTS_GUIDE.md](./docs/STYLED_COMPONENTS_GUIDE.md)** - 스타일링 방법 학습
 
 ## 🎯 프로젝트 소개
 
@@ -36,8 +17,6 @@
 - 🔷 **타입 안정성** - TypeScript로 런타임 에러 최소화
 - 💅 **강력한 스타일링** - Styled-components와 테마 시스템
 - 🔄 **효율적인 상태 관리** - React Query + Zustand 조합
-- 📱 **실전 예제** - 게시글/사용자 관리 샘플 구현
-- 🎨 **Atomic Design** - atoms, elements, widgets로 구성된 UI 컴포넌트 구조
 
 ## 🛠️ 기술 스택
 
@@ -75,8 +54,6 @@
 - **Dayjs** - 가벼운 날짜 라이브러리
 - **ESLint & Prettier** - 코드 품질 및 포맷팅
 
-자세한 내용은 [라이브러리 가이드](./docs/LIBRARIES.md)를 참고하세요.
-
 ## 📁 프로젝트 구조
 
 ```
@@ -85,16 +62,16 @@ public/
 src/
 ├── app/                    # 애플리케이션 초기화, 프로바이더, 라우팅
 ├── pages/                  # 페이지 컴포넌트 (라우트)
-├── domains/                # 도메인별 비즈니스 로직
-│   ├── post/              # 게시글 도메인
-│   │   ├── _common/       # 공통 코드 (API, 모델, UI)
-│   │   └── features/      # 기능별 컴포넌트
-│   └── user/              # 사용자 도메인
+├── domains/                # 도메인별 비즈니스 로직 (비어있음 - 새로 추가)
 └── shared/                 # 공통 코드
-    └── ui/                 # UI 컴포넌트
-        ├── atoms/          # 원자적 컴포넌트
-        ├── elements/       # 기본 UI 요소
-        └── widgets/        # 복합 컴포넌트
+    ├── api/                # API 클라이언트
+    ├── config/             # 설정 파일
+    ├── hooks/              # 공통 훅
+    ├── lib/                # 라이브러리 설정
+    ├── types/              # 공통 타입
+    ├── ui/                 # UI 컴포넌트
+    │   └── atoms/          # 원자적 컴포넌트 (Button 등)
+    └── utils/              # 유틸리티 함수
 ```
 
 **의존성 규칙:**
@@ -153,27 +130,139 @@ npm run preview          # 빌드 결과 미리보기
 npm run preview:prod     # production 모드로 프리뷰
 ```
 
-자세한 시작 가이드는 [GETTING_STARTED.md](./docs/GETTING_STARTED.md)를 참고하세요.
+## 🏗️ 첫 번째 기능 만들기
 
-## 🎨 샘플 기능
+### 1. 도메인 생성
 
-이 템플릿에는 다음과 같은 실전 예제가 구현되어 있습니다:
+새로운 기능을 추가하려면 먼저 도메인을 생성합니다.
 
-- ✅ 게시글 목록/상세/작성/수정 (CRUD)
-- ✅ 사용자 목록/상세 조회
-- ✅ React Query 캐싱 및 무효화
-- ✅ Form 검증 (React Hook Form + Zod)
-- ✅ 에러 처리 및 로딩 상태
-- ✅ AsyncBoundary를 활용한 Suspense 패턴
+예: `src/domains/example/_common/model/example.schema.ts` 파일 생성
 
-자세한 예제 설명은 [EXAMPLES.md](./docs/EXAMPLES.md)를 참고하세요.
+```typescript
+export interface Example {
+  id: string;
+  name: string;
+  description?: string;
+}
+```
 
-## 🤝 기여 및 피드백
+### 2. API 생성
 
-이 프로젝트는 학습 및 프로덕션 시작점으로 사용될 수 있습니다. 개선 제안이나 버그 리포트는 언제든 환영합니다.
+`src/domains/example/_common/api/example.api.ts` 파일 생성
+
+```typescript
+import { apiClient } from '@/shared/api/client';
+import type { Example } from '../model/example.schema';
+
+export const exampleApi = {
+  fetchList: (): Promise<Example[]> => {
+    return apiClient.get<Example[]>('/examples');
+  },
+};
+```
+
+### 3. React Query 쿼리 생성
+
+`src/domains/example/_common/api/example.queries.ts` 파일 생성
+
+```typescript
+import { useQuery } from '@tanstack/react-query';
+import { exampleApi } from './example.api';
+import type { Example } from '../model/example.schema';
+
+export const exampleQueries = {
+  all: () => ['examples'] as const,
+  lists: () => [...exampleQueries.all(), 'list'] as const,
+  list: () => [...exampleQueries.lists()] as const,
+};
+
+export function useExampleList() {
+  return useQuery({
+    queryKey: exampleQueries.list(),
+    queryFn: exampleApi.fetchList,
+  });
+}
+```
+
+### 4. Feature 컴포넌트 생성
+
+`src/domains/example/features/example-list/ui/ExampleList/ExampleList.tsx` 파일 생성
+
+```typescript
+import { useExampleList } from '@/domains/example/_common/api/example.queries';
+
+export function ExampleList() {
+  const { data: examples, isLoading, error } = useExampleList();
+
+  if (isLoading) return <div>로딩 중...</div>;
+  if (error) return <div>에러가 발생했습니다.</div>;
+  if (!examples || examples.length === 0) return <div>데이터가 없습니다.</div>;
+
+  return (
+    <div>
+      {examples.map((example) => (
+        <div key={example.id}>
+          <h3>{example.name}</h3>
+          {example.description && <p>{example.description}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### 5. 페이지 생성
+
+`src/pages/examples/ExamplesPage.tsx` 파일 생성
+
+```typescript
+import { ExampleList } from '@/domains/example/features/example-list/ui/ExampleList/ExampleList';
+
+export function ExamplesPage() {
+  return (
+    <div>
+      <h1>예제 목록</h1>
+      <ExampleList />
+    </div>
+  );
+}
+```
+
+### 6. 라우팅 추가
+
+`src/app/routes/index.tsx` 파일에 라우트 추가
+
+```typescript
+// ... existing code ...
+
+const ExamplesPage = lazy(() =>
+  import('@/pages/examples/ExamplesPage').then((module) => ({ default: module.ExamplesPage }))
+);
+
+// ... existing code ...
+
+<Routes>
+  <Route path={ROUTES_PATHS.HOME} element={<HomePage />} />
+  <Route path="/examples" element={<ExamplesPage />} />
+  <Route path={ROUTES_PATHS.NOT_FOUND} element={<NotFoundPage />} />
+</Routes>
+```
+
+### 7. 라우트 경로 상수 추가
+
+`src/shared/config/routes.ts` 파일에 경로 추가
+
+```typescript
+const ROUTES_PATHS = {
+  HOME: '/',
+  EXAMPLES: '/examples',
+  // ... existing code ...
+};
+```
 
 ## 📖 참고 자료
 
 - [React 공식 문서](https://react.dev/)
 - [TanStack Query 문서](https://tanstack.com/query/latest)
 - [Styled-components 문서](https://styled-components.com/)
+- [아키텍처 가이드](./docs/ARCHITECTURE.md)

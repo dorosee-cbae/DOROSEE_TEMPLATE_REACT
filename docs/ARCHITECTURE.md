@@ -28,88 +28,7 @@ src/
 │   ├── home/                         # 홈 페이지
 │   │   ├── HomePage.styles.ts
 │   │   └── HomePage.tsx
-│   ├── posts/                        # 게시글 관련 페이지
-│   │   ├── new/                      # 새 게시글 작성 페이지
-│   │   │   └── NewPostPage.tsx
-│   │   ├── PostsPage.styles.ts
-│   │   └── PostsPage.tsx
-│   └── users/                        # 사용자 관련 페이지
-│       └── UsersPage.tsx
-├── domains/                          # 도메인별 비즈니스 로직
-│   ├── counter-example/              # 카운터 예제 도메인
-│   │   ├── hooks/
-│   │   │   └── useCounter.ts         # 카운터 커스텀 훅
-│   │   └── ui/
-│   │       └── Counter/
-│   │           ├── Counter.styles.ts
-│   │           └── Counter.tsx
-│   ├── post/                         # 게시글 도메인
-│   │   ├── _common/                  # 공통 코드
-│   │   │   ├── api/                  # API 호출
-│   │   │   │   ├── posts.api.ts      # 게시글 API 함수
-│   │   │   │   └── posts.queries.ts  # React Query 쿼리 정의
-│   │   │   ├── model/                # 데이터 모델
-│   │   │   │   ├── posts.schema.ts   # 게시글 타입 정의
-│   │   │   │   └── posts.store.ts    # 게시글 상태 관리
-│   │   │   ├── ui/                   # 공통 UI 컴포넌트
-│   │   │   │   ├── PostAuthor/
-│   │   │   │   │   └── PostAuthor.tsx
-│   │   │   │   └── PostCard/
-│   │   │   │       ├── PostCard.styles.ts
-│   │   │   │       └── PostCard.tsx
-│   │   │   └── utils/                # 유틸리티
-│   │   │       └── posts.utils.ts
-│   │   └── features/                 # 기능별 컴포넌트
-│   │       ├── create-post/          # 게시글 생성 기능
-│   │       │   ├── hooks/
-│   │       │   │   └── useCreatePost.ts  # 게시글 생성 훅
-│   │       │   └── ui/
-│   │       │       ├── CreatePostButton/
-│   │       │       │   └── CreatePostButton.tsx
-│   │       │       └── CreatePostForm/
-│   │       │           ├── CreatePostForm.styles.ts
-│   │       │           └── CreatePostForm.tsx
-│   │       ├── delete-post/          # 게시글 삭제 기능 (재사용 가능)
-│   │       │   ├── hooks/
-│   │       │   │   └── useDeletePost.ts  # 게시글 삭제 훅
-│   │       │   └── ui/
-│   │       │       └── DeletePostButton/
-│   │       │           └── DeletePostButton.tsx
-│   │       ├── edit-post/            # 게시글 수정 기능
-│   │       │   └── ui/
-│   │       │       └── EditPostForm/
-│   │       │           └── EditPostForm.tsx
-│   │       ├── like-post/            # 게시글 좋아요 기능
-│   │       │   └── ui/
-│   │       │       └── LikePostButton/
-│   │       │           └── LikePostButton.tsx
-│   │       └── post-list/            # 게시글 목록 기능
-│   │           ├── hooks/
-│   │           │   └── usePostList.ts    # 게시글 목록 조회 훅
-│   │           └── ui/
-│   │               └── PostList/
-│   │                   └── PostList.tsx
-│   └── user/                         # 사용자 도메인
-│       ├── _common/                  # 공통 코드
-│       │   ├── api/                  # API 호출
-│       │   │   ├── users.api.ts      # 사용자 API 함수
-│       │   │   └── users.queries.ts  # React Query 쿼리 정의
-│       │   ├── model/                # 데이터 모델
-│       │   │   └── users.schema.ts   # 사용자 타입 정의
-│       │   └── ui/                   # 공통 UI 컴포넌트
-│       │       └── UserCard/
-│       │           ├── UserCard.styles.ts
-│       │           └── UserCard.tsx
-│       └── features/                 # 기능별 컴포넌트
-│           └── user-list/            # 사용자 목록 기능
-│               ├── hooks/
-│               │   ├── useUserList.ts    # 사용자 목록 조회 훅
-│               │   └── useDeleteUser.ts  # 사용자 삭제 훅
-│               └── ui/
-│                   ├── DeleteUserButton/
-│                   │   └── DeleteUserButton.tsx
-│                   └── UserList/
-│                       └── UserList.tsx
+├── domains/                          # 도메인별 비즈니스 로직 (비어있음 - 새로 추가)
 ├── shared/                           # 공통 코드
 │   ├── api/                          # API 클라이언트
 │   │   └── client.ts                 # Axios/Fetch 클라이언트 설정
@@ -131,93 +50,12 @@ src/
 │   │   └── common.type.ts            # 공통 타입
 │   ├── ui/                           # UI 컴포넌트
 │   │   ├── atoms/                    # 원자적 컴포넌트
-│   │   │   ├── button/
-│   │   │   │   ├── Button.styles.ts
-│   │   │   │   └── Button.tsx
-│   │   │   ├── input/
-│   │   │   │   ├── Input.styles.ts
-│   │   │   │   └── Input.tsx
-│   │   │   ├── label/
-│   │   │   │   ├── Label.styles.ts
-│   │   │   │   └── Label.tsx
-│   │   │   └── textarea/
-│   │   │       ├── Textarea.styles.ts
-│   │   │       └── Textarea.tsx
-│   │   ├── elements/                 # 기본 요소
-│   │   │   ├── async-boundary/
-│   │   │   │   └── AsyncBoundary.tsx
-│   │   │   ├── back-button/
-│   │   │   │   ├── BackButton.styles.ts
-│   │   │   │   └── BackButton.tsx
-│   │   │   ├── empty-state/
-│   │   │   │   ├── EmptyState.styles.ts
-│   │   │   │   └── EmptyState.tsx
-│   │   │   ├── error-display/
-│   │   │   │   ├── ErrorDisplay.styles.ts
-│   │   │   │   └── ErrorDisplay.tsx
-│   │   │   ├── error-message/
-│   │   │   │   ├── ErrorMessage.styles.ts
-│   │   │   │   └── ErrorMessage.tsx
-│   │   │   ├── form-group/
-│   │   │   │   ├── FormGroup.styles.ts
-│   │   │   │   └── FormGroup.tsx
-│   │   │   ├── grid/
-│   │   │   │   ├── Grid.styles.ts
-│   │   │   │   └── Grid.tsx
-│   │   │   ├── loading-spinner/
-│   │   │   │   ├── LoadingSpinner.styles.ts
-│   │   │   │   └── LoadingSpinner.tsx
-│   │   │   └── section/
-│   │   │       ├── Section.styles.ts
-│   │   │       └── Section.tsx
-│   │   ├── layouts/                 # 레이아웃 컴포넌트
-│   │   │   └── page-layout/
-│   │   │       ├── PageLayout.styles.ts
-│   │   │       └── PageLayout.tsx
-│   │   └── widgets/                  # 복합 컴포넌트
-│   │       ├── assets-demo/
-│   │       │   └── ui/
-│   │       │       └── AssetsDemo/
-│   │       │           ├── AssetsDemo.styles.ts
-│   │       │           └── AssetsDemo.tsx
-│   │       ├── counter-demo/
-│   │       │   └── ui/
-│   │       │       └── CounterDemo/
-│   │       │           ├── CounterDemo.styles.ts
-│   │       │           └── CounterDemo.tsx
-│   │       ├── date-format-demo/
-│   │       │   └── ui/
-│   │       │       ├── DateFormatDemo/
-│   │       │       │   ├── DateFormatDemo.styles.ts
-│   │       │       │   └── DateFormatDemo.tsx
-│   │       │       └── DateFormatExample/
-│   │       │           ├── DateFormatExample.styles.ts
-│   │       │           └── DateFormatExample.tsx
-│   │       ├── header/
-│   │       │   └── ui/
-│   │       │       ├── Header/
-│   │       │       │   ├── Header.styles.ts
-│   │       │       │   └── Header.tsx
-│   │       │       └── RainbowBlinkingText/
-│   │       │           ├── RainbowBlinkingText.styles.ts
-│   │       │           └── RainbowBlinkingText.tsx
-│   │       ├── layer-visualizer/
-│   │       │   └── ui/
-│   │       │       ├── LayerOverlay/
-│   │       │       │   ├── LayerOverlay.styles.ts
-│   │       │       │   └── LayerOverlay.tsx
-│   │       │       └── LayerVisualizer/
-│   │       │           ├── LayerVisualizer.styles.ts
-│   │       │           └── LayerVisualizer.tsx
-│   │       └── ui-components-demo/
-│   │           └── ui/
-│   │               └── UIComponentsDemo/
-│   │                   ├── UIComponentsDemo.styles.ts
-│   │                   └── UIComponentsDemo.tsx
+│   │   │   └── button/
+│   │   │       ├── Button.styles.ts
+│   │   │       └── Button.tsx
 │   └── utils/                        # 유틸리티
 │       ├── common.util.ts            # 공통 유틸리티 함수
-│       ├── date.util.ts              # 날짜 유틸리티 함수
-│       └── layer-scanner.ts          # 레이어 스캐너 유틸리티
+│       └── date.util.ts              # 날짜 유틸리티 함수
 ├── main.tsx                          # 애플리케이션 진입점
 ├── styled.d.ts                       # Styled Components 타입 정의
 └── vite-env.d.ts                     # Vite 환경 타입 정의
@@ -360,97 +198,21 @@ export function PostList() {
 
 ## Shared UI 구조
 
-Shared UI는 Atomic Design 원칙을 따릅니다.
+현재 템플릿에는 기본적인 Button 컴포넌트만 포함되어 있습니다. 프로젝트에 필요한 UI 컴포넌트를 추가하여 사용할 수 있습니다.
 
 ### atoms (원자적 컴포넌트)
 
 가장 작은 단위의 UI 컴포넌트입니다.
 
-- Button
-- Input
-- Label
-- Textarea
+- **Button**: 기본 버튼 컴포넌트
 
 ```typescript
 // shared/ui/atoms/button/Button.tsx
-export function Button({ children, onClick }: ButtonProps) {
-  return <button onClick={onClick}>{children}</button>;
-}
-```
-
-### elements (기본 요소)
-
-여러 atoms를 조합한 기본 UI 요소입니다.
-
-- AsyncBoundary
-- FormGroup
-- Grid
-- LoadingSpinner
-
-```typescript
-// shared/ui/elements/form-group/FormGroup.tsx
-export function FormGroup({ label, children }: FormGroupProps) {
+export function Button({ children, onClick, variant, size }: ButtonProps) {
   return (
-    <div>
-      <Label>{label}</Label>
+    <StyledButton $variant={variant} $size={size} onClick={onClick}>
       {children}
-    </div>
-  );
-}
-```
-
-### layouts (레이아웃 컴포넌트)
-
-페이지 레이아웃을 담당하는 컴포넌트입니다.
-
-- **PageLayout**: 페이지의 제목과 설명을 포함한 레이아웃 컴포넌트
-
-```typescript
-// shared/ui/layouts/page-layout/PageLayout.tsx
-export function PageLayout({ title, description, children }: PageLayoutProps) {
-  return (
-    <StyledPageLayout>
-      <StyledHeader>
-        <StyledTitle>{title}</StyledTitle>
-        {description && <StyledDescription>{description}</StyledDescription>}
-      </StyledHeader>
-      <StyledContent>{children}</StyledContent>
-    </StyledPageLayout>
-  );
-}
-
-// pages/posts/PostsPage.tsx
-export function PostsPage() {
-  return (
-    <>
-      <Header />
-      <PageLayout title="게시글 목록" description="게시글을 조회하고 관리합니다">
-        <PostList />
-      </PageLayout>
-    </>
-  );
-}
-```
-
-### widgets (복합 컴포넌트)
-
-여러 elements를 조합한 복합 컴포넌트입니다.
-
-- **Header**: 상단 헤더 컴포넌트
-- **UIComponentsDemo**: UI 컴포넌트 데모
-- **LayerVisualizer**: 레이어 시각화 도구 (개발용)
-- **CounterDemo**: 카운터 데모
-- **DateFormatDemo**: 날짜 포맷 데모
-- **AssetsDemo**: 에셋 데모
-
-```typescript
-// shared/ui/widgets/header/ui/Header/Header.tsx
-export function Header() {
-  return (
-    <header>
-      <h1>My App</h1>
-      <nav>...</nav>
-    </header>
+    </StyledButton>
   );
 }
 ```

@@ -104,36 +104,6 @@ export default [
       ],
     },
   },
-  // shared/ui/widgets 내부의 데모 위젯은 boundaries 규칙 예외 (domains import 허용)
-  {
-    files: ['src/shared/ui/widgets/**/*.{ts,tsx}'],
-    plugins: {
-      boundaries: boundariesPlugin,
-    },
-    settings: {
-      'boundaries/elements': [
-        { type: 'app', pattern: 'src/app/**' },
-        { type: 'pages', pattern: 'src/pages/**' },
-        { type: 'domains', pattern: 'src/domains/**' },
-        { type: 'shared', pattern: 'src/shared/**' },
-      ],
-      'boundaries/include': ['src/**/*'],
-    },
-    rules: {
-      'boundaries/element-types': [
-        'error',
-        {
-          default: 'disallow',
-          rules: [
-            {
-              from: ['shared'],
-              allow: ['domains', 'shared'],
-            },
-          ],
-        },
-      ],
-    },
-  },
   // 스타일 파일에 대한 특별 규칙
   {
     files: ['**/*.styles.ts', '**/*.styles.tsx'],

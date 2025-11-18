@@ -1,7 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { RouterProvider } from './providers/RouterProvider';
 import { NotFoundPage } from '@/pages/404/NotFoundPage';
-import { LayerOverlay } from '@/shared/ui/widgets/layer-visualizer/ui/LayerOverlay/LayerOverlay';
 
 // Router 컨텍스트 밖에서 사용할 에러 페이지
 const ErrorFallback = () => {
@@ -40,7 +39,6 @@ export function App() {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <ErrorBoundary FallbackComponent={NotFoundPage}>
         <RouterProvider />
-        <LayerOverlay />
       </ErrorBoundary>
     </ErrorBoundary>
   );
