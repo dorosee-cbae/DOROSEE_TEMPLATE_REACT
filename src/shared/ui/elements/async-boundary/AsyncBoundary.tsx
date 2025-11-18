@@ -1,8 +1,7 @@
 import { Suspense, ReactNode, ErrorInfo } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { LoadingSpinner } from '@/shared/ui/elements/loading-spinner/LoadingSpinner';
-import { ErrorDisplay } from '@/shared/ui/elements/error-display/ErrorDisplay';
-import { Button } from '@/shared/ui/atoms/button/Button';
+import { ErrorLayout } from '@/shared/ui/layouts/error-layout/ErrorLayout';
 import { TEXTS } from '@/shared/config/texts';
 
 interface AsyncBoundaryProps {
@@ -51,9 +50,24 @@ export function AsyncBoundary({
   const defaultErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
     const errorMessage = error instanceof Error ? error.message : TEXTS.ui.defaultError;
     return (
-      <ErrorDisplay message={errorMessage}>
-        <Button onClick={onReset || resetErrorBoundary}>{TEXTS.buttons.retry}</Button>
-      </ErrorDisplay>
+      <ErrorLayout
+        title="오류 발생"
+        description={errorMessage}
+        actionButton={
+          <button
+            onClick={onReset || resetErrorBoundary}
+            style={{
+              padding: '0.75rem 1.5rem',
+              border: 'none',
+              borderRadius: '0.5rem',
+              cursor: 'pointer',
+              fontWeight: 500,
+            }}
+          >
+            다시 시도
+          </button>
+        }
+      />
     );
   };
 

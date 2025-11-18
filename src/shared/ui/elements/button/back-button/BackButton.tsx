@@ -1,13 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { StyledBackButton, StyledArrowIcon } from './BackButton.styles';
+import { TEXTS } from '@/shared/config/texts';
 
-interface BackButtonProps {
-  onClick: () => void;
-  children?: React.ReactNode;
-}
+export function BackButton() {
+  const navigate = useNavigate();
 
-export function BackButton({ onClick, children = '뒤로 가기' }: BackButtonProps) {
   return (
-    <StyledBackButton onClick={onClick}>
+    <StyledBackButton onClick={() => navigate(-1)}>
       <StyledArrowIcon
         width="20"
         height="20"
@@ -18,7 +17,7 @@ export function BackButton({ onClick, children = '뒤로 가기' }: BackButtonPr
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
       </StyledArrowIcon>
-      {children}
+      {TEXTS.buttons.back}
     </StyledBackButton>
   );
 }

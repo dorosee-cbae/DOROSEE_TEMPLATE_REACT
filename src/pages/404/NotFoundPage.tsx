@@ -1,24 +1,12 @@
-import { Link } from 'react-router-dom';
-import { Button } from '@/shared/ui/atoms/button/Button';
-import { ROUTES_PATHS } from '@/shared/config/routes';
-import {
-  StyledContainer,
-  StyledContent,
-  StyledTitle,
-  StyledDescription,
-} from './NotFoundPage.styles';
+import { ErrorLayout } from '@/shared/ui/layouts/error-layout/ErrorLayout';
+import { BackButton } from '@/shared/ui/elements/button/back-button/BackButton';
 
 export function NotFoundPage() {
   return (
-    <StyledContainer>
-      <StyledContent>
-        <StyledTitle>404</StyledTitle>
-        <StyledDescription>페이지를 찾을 수 없습니다</StyledDescription>
-        <Button as={Link} to={ROUTES_PATHS.HOME}>
-          홈으로 돌아가기
-        </Button>
-      </StyledContent>
-    </StyledContainer>
+    <ErrorLayout
+      title="404"
+      description="페이지를 찾을 수 없습니다"
+      actionButton={<BackButton />}
+    />
   );
 }
-
