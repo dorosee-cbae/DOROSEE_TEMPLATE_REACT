@@ -23,7 +23,7 @@ interface AsyncBoundaryProps {
   onError?: (error: Error, info: ErrorInfo) => void;
   /**
    * 에러 발생 시 재시도 핸들러
-   * 제공하지 않으면 새로고침 버튼 표시
+   * 제공하지 않으면 재시도 버튼 표시
    */
   onReset?: () => void;
 }
@@ -48,12 +48,14 @@ export function AsyncBoundary({
   onError,
   onReset,
 }: AsyncBoundaryProps) {
-  const defaultErrorFallback = ({ error }: FallbackProps) => {
+  const defaultErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
     const errorMessage = error instanceof Error ? error.message : TEXTS.ui.defaultError;
     return (
-      <ErrorLayout title="오류 발생" description={errorMessage}>
-        <RetryButton onRetry={() => onReset?.()} />
-      </ErrorLayout>
+      <ErrorLayout
+        title="오류 발생"
+        description={errorMessage}
+        actionButton={<RetryButton onRetry={() => onReset?.() || resetErrorBoundary()} />}
+      />
     );
   };
 
