@@ -23,3 +23,4 @@ export const StyledArrowIcon = styled.svg`
   width: 20px;
   height: 20px;
 `;
+
