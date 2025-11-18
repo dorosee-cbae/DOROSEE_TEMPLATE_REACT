@@ -23,7 +23,7 @@ interface AsyncBoundaryProps {
   onError?: (error: Error, info: ErrorInfo) => void;
   /**
    * 에러 발생 시 재시도 핸들러
-   * 제공하지 않으면 새로고침 버튼 표시
+   * 제공하지 않으면 재시도 버튼 표시
    */
   onReset?: () => void;
 }
