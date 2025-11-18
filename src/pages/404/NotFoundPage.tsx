@@ -1,17 +1,12 @@
-import {
-  StyledContainer,
-  StyledContent,
-  StyledTitle,
-  StyledDescription,
-} from './NotFoundPage.styles';
+import { ErrorLayout } from '@/shared/ui/layouts/error-layout/ErrorLayout';
+import { BackButton } from '@/shared/ui/elements/button/back-button/BackButton';
 
 export function NotFoundPage() {
   return (
-    <StyledContainer>
-      <StyledContent>
-        <StyledTitle>404</StyledTitle>
-        <StyledDescription>페이지를 찾을 수 없습니다</StyledDescription>
-      </StyledContent>
-    </StyledContainer>
+    <ErrorLayout
+      title="404"
+      description="페이지를 찾을 수 없습니다"
+      actionButton={<BackButton />}
+    />
   );
 }

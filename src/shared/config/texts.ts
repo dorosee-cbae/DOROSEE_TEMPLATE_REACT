@@ -17,9 +17,9 @@ export const TEXTS = {
     message: '메시지를 입력하세요',
   },
   buttons: {
-    reset: 'Reset',
-    retry: '다시 시도',
+    refresh: '새로고침',
     home: '홈',
+    back: '뒤로 가기',
   },
   ui: {
     defaultError: '오류가 발생했습니다.',

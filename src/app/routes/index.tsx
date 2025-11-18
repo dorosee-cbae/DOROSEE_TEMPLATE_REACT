@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ROUTES_PATHS } from '@/shared/config/routes';
+import { LoadingSpinner } from '@/shared/ui/elements/loading-spinner/LoadingSpinner';
 
 // Lazy load pages for code splitting
 const HomePage = lazy(() =>
@@ -26,7 +27,7 @@ export function AppRouter() {
             height: '100vh',
           }}
         >
-          <div>로딩 중...</div>
+          <LoadingSpinner />
         </div>
       }
     >
