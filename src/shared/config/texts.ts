@@ -17,6 +17,7 @@ export const TEXTS = {
     message: '메시지를 입력하세요',
   },
   buttons: {
+    retry: '다시 시도',
     refresh: '새로고침',
     home: '홈',
     back: '뒤로 가기',

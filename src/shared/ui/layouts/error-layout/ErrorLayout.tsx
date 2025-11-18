@@ -17,7 +17,7 @@ interface ErrorLayoutProps {
 
 export function ErrorLayout({ title, description, children, actionButton }: ErrorLayoutProps) {
   return (
-    <StyledErrorLayout data-fsd-path="shared/ui/layouts/error-layout">
+    <StyledErrorLayout>
       <StyledContent>
         <StyledTitle>{title}</StyledTitle>
         {description && <StyledDescription>{description}</StyledDescription>}
